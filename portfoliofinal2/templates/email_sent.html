@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>succesfully sent</title>
+  <style>
+  .messages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.messages li {
+  background-color: #dff0d8;
+  border: 1px solid #3c763d;
+  color: #3c763d;
+  margin: 10px 0
+</head>
+<body>
+</style>
+</head>
+<body>
+  <p>your message has been sent</p>
+</body>
+{% csrf_token %}
+{% if messages %}
+
+  <ul class="messages">
+    {% for message in messages %}
+      <li> {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+</body>
+</html>
